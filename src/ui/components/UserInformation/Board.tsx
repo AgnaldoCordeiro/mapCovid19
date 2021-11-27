@@ -29,7 +29,7 @@ const Board: FC<Props> = ({
   const getValue = (value: any) => value ? value : <Skeleton variant="text" width={182} height={60} />
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={4} mb={4}>
       <Grid item xs={12} md={3}>
         <Card value={getValue(country)} label="Pais Informado" color="#a3f804" />
       </Grid>
