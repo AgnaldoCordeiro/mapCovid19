@@ -1,10 +1,64 @@
+import useIndex from "data/hooks/pages/useIndex.page"
 import { NextPage } from "next"
+import React from "react"
+import { Box, CircularProgress, Container, TextField } from "@mui/material";
+import PageTitle from "ui/components/data-display/PageTitle/PageTitle";
+import { Button, Typography } from "@mui/material";
+import { FormElementsContainer } from "@styles/pages/index.style";
+import Board from "ui/components/UserInformation/Board";
+
 
 const Home: NextPage = () => {
+  const {
+    buscaFeita,
+    carregando,
+    dadosRegiao,
+    erro,
+    country,
+    setCountry,
+    getCovidData
+  } = useIndex() 
+   
   return (
     <div>
-      <h1>App ON</h1>
-    </div>
+      <PageTitle
+        title={'Sistema de Mapeamento Covid-19 '}
+      />
+      <Container>
+        <FormElementsContainer>
+          <Box sx={{ textAlign: 'center' }}>
+            <div className="mb-2">
+              <TextField
+              label={'Digite o Pais que queira carregar os dados'}
+                fullWidth
+                variant={'outlined'}
+                color={'secondary'}
+              value={country}
+              onChange={(event) => setCountry(event.target.value)}
+            />
+                {erro && <Typography color={'error'}>{erro}</Typography>}
+              <Button
+                variant={'contained'}
+                color={'secondary'}
+                sx={{ width: '220px', margin: '0.75rem' }}
+                type={'submit'}
+                disabled={!country || carregando}
+                onClick={() => getCovidData(country)}
+                >
+                    {carregando ? <CircularProgress size={20} /> : 'Buscar'}
+            </Button>
+          </div>
+          </Box>
+        </FormElementsContainer>
+                
+        {buscaFeita && (dadosRegiao.values == null)  ?
+          <Board data={dadosRegiao} />            
+          :
+          <Typography align={'center'} color={'error'}>             
+          </Typography>
+        }
+      </Container>            
+      </div>
   )
 }
 

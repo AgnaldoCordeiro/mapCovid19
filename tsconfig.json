@@ -21,7 +21,7 @@
     "paths": {
       "@styles/*": [
         "ui/styles/*"
-      ]      
+      ]
     },
     "incremental": true
   },
