@@ -22,14 +22,14 @@ const Home: NextPage = () => {
   return (
     <div>
       <PageTitle
-        title={'Sistema de Mapeamento Covid-19 '}
+        title={'Covid-19 Mapping System'}
       />
       <Container>
         <FormElementsContainer>
           <Box sx={{ textAlign: 'center' }}>
             <div className="mb-2">
               <TextField
-              label={'Digite o Pais que queira carregar os dados'}
+              label={'Digite o País que queira carregar os dados'}
                 fullWidth
                 variant={'outlined'}
                 color={'secondary'}
