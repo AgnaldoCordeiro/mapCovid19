@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ApiService } from "../../services/ApiService";
 
 export default function useIndex() {
-  const [dadosRegiao, setDadosRegiao] = useState([]),
+  const [dadosRegiao, setDadosRegiao] = useState([] as UserShartInterface[]),
     [country, setCountry] = useState(""),
     [buscaFeita, setBuscaFeita] = useState(false),
     [carregando, setCarregando] = useState(false),
